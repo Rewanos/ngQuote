@@ -32,14 +32,10 @@ jobs:
     - name: npm install and npm run test:coverage
       run: |
         npm install
-        npm run test:coverage 
-          
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@master
-    - uses: codecov/codecov-action@v1
-      with:
-        token: 04e92be1-fa03-48da-ba46-68d05b558163
-        file: ./coverage/lcov.info
-        flags: unittests # optional
-        name: codecov-umbrella # optional
-        fail_ci_if_error: true # optional (default = false
+        npm run test:coverage
+        
+    - name: upload to codecov
+      run: |
+        curl -s https://codecov.io/bash |
+        bash -s - -t 04e92be1-fa03-48da-ba46-68d05b558163 -f coverage/lcov.info
+

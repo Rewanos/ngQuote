@@ -24,10 +24,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Node $
+    - name: Node 12.14.1
       uses: actions/setup-node@v1
       with:
-        node-version: $
+        node-version: 12.14.1
 
     - name: npm install and npm run test:coverage
       run: |

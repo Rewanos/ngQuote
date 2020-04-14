@@ -4,12 +4,11 @@ env:
   variables:
     CACHE_CONTROL: 86400
     BUILD_ENV: test
-    S3_BUCKET: quote-app-test
+    S3_BUCKET: ngquote-prod
     GIT_BRANCH: develop
     CI_NAME: CodeBuild
     # CLOUDFRONT_ID: ""
     # CLOUDFRONT_APP_URL: ""
-    # CODE_CLIMATE_REPORTER_ID: ""
     # CODECOV_TOKEN: ""
     CODECOV_COVERAGE_REPORT_PATH: "coverage/lcov.info"
 
@@ -58,7 +57,6 @@ phases:
     commands:
       # Upload test coverage report to CodeCov and CodeClimate.
       - curl -s https://codecov.io/bash | bash -s - -t ${CODECOV_TOKEN} -f ${CODECOV_COVERAGE_REPORT_PATH}
-      - ./cc-test-reporter after-build -t lcov -r ${CODE_CLIMATE_REPORTER_ID} --exit-code $?
 
       # Clear S3 bucket.
       - aws s3 rm s3://${S3_BUCKET} --recursive

@@ -6,7 +6,6 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/28cd30bed8aafba2330d/test_coverage)](https://codeclimate.com/github/boale/ngQuote/test_coverage)
 
 Angular-based Quote generator with all necessary CI/CD configurations and integrations. 
-
 Also it has basic integrations with Ngrx or Ngxs stores (see `feature/ngrxStore` or `feature/ngxsStore` respectively). 
 
 ## Development server
